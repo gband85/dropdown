@@ -1,0 +1,95 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.navbar {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    color: #fff;
+    align-items: center;
+    width: 100%;
+    /* grid-row: 2/3; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: black;
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.3em;
+    position: relative;
+    top: 0px;
+    transition: all .5s ease-in-out;
+    background-color: black;
+    width: 100%;
+    /* flex-grow: 1; */
+    padding: 10px;
+    align-items: center;
+    z-index: 4;
+  }
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  
+    /* background-color: black; */
+    padding: 10px;
+    z-index: 5;
+  }
+  .nav-list.desktop {
+    flex-direction: row;
+    grid-row: 1/2;
+  grid-column: 2/3;
+  justify-self: end;
+  position: unset;
+  width: unset;
+  background-color: unset;
+  }
+  .nav-list li {
+    height: 26px;
+  }
+  .nav-list li:first-child {
+    margin-top: 0;
+  }
+  .nav-list button {
+    display: block;
+  background-color: black;
+    text-align: center;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    /* padding: 10px; */
+    margin: 0;
+    height: 100%;
+    font-family: "Merriweather", serif;
+  }
+  .nav-list button:hover {
+    background-color: #fff;
+    color: black;
+  }
+  .nav-list.hide {
+    top: -230px;
+  }
+  .navbar svg {
+    color: #fff;
+    z-index: 2000;
+  }
+  .logo {
+    text-decoration: none;
+    color: black;
+    grid-row: 1/2;
+    font-size: 1.3em;
+    color: #fff;
+    /* padding-left: 10px; */
+  }
+  .hamburger {
+    cursor: pointer;
+    grid-row: 1/2;
+    font-size: 1.6em;
+    color: #fff;
+    grid-column: 2/3;
+  justify-self: flex-end;
+  }
