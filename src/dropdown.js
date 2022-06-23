@@ -23,7 +23,7 @@ const writeUI=()=>{
   const navList=document.createElement("ul");
   navList.className="nav-list";
   //iterate through args,create li with button with arg
-    linksArr.forEach(function(item){
+    linksArr.map(function(item){
 const listItem=document.createElement("li");
 listItem.className="menu-item";
 listItem.innerHTML=`<button class="btn">${item}</button>`;
