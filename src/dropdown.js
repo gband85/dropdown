@@ -2,7 +2,7 @@ const navbar=(brandText,...links)=>{
     //accept any args
 //first arg is logo text,1 to end is buttons text
 let linksArr=links.slice(1);
-const writeUI=()=>{
+const init=()=>{
 //create div
     const navbarUI=document.createElement("nav");
     navbarUI.className="navbar"
@@ -40,6 +40,6 @@ console.log("show")
     const hide=()=>{
 console.log("hide")
     }
-    return { writeUI,show,hide }
+    return { init,show,hide }
 }
 export {dropdown}
