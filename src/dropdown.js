@@ -2,6 +2,7 @@ const dropdown=(...theItems)=>{
     //accept any args
 //first arg is logo text,1 to end is buttons text
 let itemsArr=theItems.slice(1);
+const writeUI=()=>{
 //create div
     const dropdownUI=document.createElement("nav");
     dropdownUI.className="navbar"
@@ -23,12 +24,14 @@ listItem.innerHTML=`<button class="btn">${item}</button>`;
 navList.appendChild(listItem);
     })
 dropdownUI.appendChild(navList);
+return dropdownUI;
+}
     const show=()=>{
 console.log("show")
     }
     const hide=()=>{
 console.log("hide")
     }
-    return { dropdownUI,show,hide }
+    return { writeUI,show,hide }
 }
 export {dropdown}

@@ -3,7 +3,7 @@ import './style.css'
 //create dropdown menu
 const drop=dropdown("FreeJS","Home","About");
 //add elements to page
-document.body.appendChild(drop.dropdownUI);
+document.body.appendChild(drop.writeUI());
 const navList=document.querySelector(".nav-list");
   const hamburger= document.querySelector(".hamburger");
   const navbar= document.querySelector(".navbar");
