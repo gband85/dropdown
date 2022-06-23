@@ -1,8 +1,8 @@
 {
-  "name": "dropdown",
+  "name": "navbar",
   "version": "1.0.0",
-  "description": "",
-  "private": "true",
+  "description": "Navbar with dropdown menu",
+  "private": "false",
   "scripts": {
     "build": "webpack --config webpack.config.js --watch"
   },
