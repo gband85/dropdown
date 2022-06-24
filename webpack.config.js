@@ -3,13 +3,17 @@ const { webpack } = require('webpack');
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = {
-  mode: 'development',
+const config = {
+  target: 'web',
   entry: {
-  index:  './src/index.js',
+  index:  './src/navbar.js',
   },
-  devtool: 'inline-source-map',
+  watchOptions: {
+    aggregateTimeout: 600,
+    ignored: /node_modules/,
+  },
   module: {
     rules: [
       {
@@ -18,20 +22,23 @@ module.exports = {
       },
       {
 
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        test: /\.s?svg$/,
         type: 'asset/resource',
       },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
+    // new HtmlWebpackPlugin({
       
+    // }),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
+      cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, './dist')],
     }),
   ],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   optimization: {
     minimizer: [
       new TerserPlugin(),
@@ -39,7 +46,23 @@ module.exports = {
     ],
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './dist'),
+    filename: 'navbar.js',
+    library: 'Navbar',
+    libraryTarget: 'umd',
+    globalObject: 'this',
+    umdNamedDefine: true,
   },
+
+};
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    // * add some development rules here
+  } else if (argv.mode === 'production') {
+    // * add some prod rules here
+  } else {
+    throw new Error('Specify env');
+  }
+
+  return config;
 };
